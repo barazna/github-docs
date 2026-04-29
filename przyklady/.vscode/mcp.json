@@ -1,0 +1,24 @@
+{
+  "servers": {
+    "github": {
+      "type": "http",
+      "url": "https://api.githubcopilot.com/mcp/",
+      "headers": {
+        "Authorization": "Bearer ${input:github_mcp_pat}"
+      }
+    },
+    "filesystem": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "${workspaceFolder}"]
+    }
+  },
+  "inputs": [
+    {
+      "type": "promptString",
+      "id": "github_mcp_pat",
+      "description": "GitHub Personal Access Token (wymagane zakresy: repo, read:org)",
+      "password": true
+    }
+  ]
+}
