@@ -18,18 +18,27 @@ Gotowe szablony do skopiowania do projektu znajdują się w katalogu [`przyklady
 ```
 przyklady/
 ├── .github/
-│   ├── copilot-instructions.md   # Instrukcje repozytorium dla Copilota
-│   ├── mcp.json                  # Konfiguracja MCP dla agenta chmurowego
+│   ├── copilot-instructions.md          # Instrukcje repozytorium dla Copilota
+│   ├── mcp.json                         # Konfiguracja MCP dla agenta chmurowego
+│   ├── agents/
+│   │   └── test-specialist.agent.md     # Przykładowy custom agent
+│   ├── hooks/
+│   │   └── project-hooks.json           # Lifecycle hooks agenta
+│   ├── instructions/
+│   │   └── typescript.instructions.md   # Instrukcje path-specific (pliki TS)
+│   ├── skills/
+│   │   └── github-actions-debugging/
+│   │       └── SKILL.md                 # Skill do debugowania CI/CD
 │   ├── workflows/
-│   │   └── copilot-setup-steps.yml  # Środowisko coding agenta
+│   │   └── copilot-setup-steps.yml      # Środowisko coding agenta
 │   └── prompts/
-│       ├── typescript.prompt.md  # Prompt dla kodu TypeScript
-│       ├── code-review.prompt.md # Prompt do przeglądu kodu
-│       └── dokumentacja.prompt.md # Prompt do generowania dokumentacji
+│       ├── typescript.prompt.md         # Prompt dla kodu TypeScript
+│       ├── code-review.prompt.md        # Prompt do przeglądu kodu
+│       └── dokumentacja.prompt.md       # Prompt do generowania dokumentacji
 └── .vscode/
-    ├── settings.json             # Ustawienia VS Code dla Copilot
-    ├── mcp.json                  # Konfiguracja serwerów MCP dla VS Code
-    └── extensions.json           # Zalecane rozszerzenia
+    ├── settings.json                    # Ustawienia VS Code dla Copilot
+    ├── mcp.json                         # Konfiguracja serwerów MCP dla VS Code
+    └── extensions.json                  # Zalecane rozszerzenia
 ```
 
 ## Szybki start

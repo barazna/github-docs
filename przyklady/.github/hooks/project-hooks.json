@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "hooks": {
+    "sessionStart": [
+      {
+        "type": "command",
+        "bash": "echo \"[$(date -u +%Y-%m-%dT%H:%M:%SZ)] Agent session started\" >> /tmp/agent-session.log",
+        "powershell": "Add-Content -Path $env:TEMP\\agent-session.log -Value \"[$(Get-Date -Format 'yyyy-MM-ddTHH:mm:ssZ')] Agent session started\"",
+        "timeoutSec": 5
+      }
+    ],
+    "sessionEnd": [
+      {
+        "type": "command",
+        "bash": "echo \"[$(date -u +%Y-%m-%dT%H:%M:%SZ)] Agent session ended\" >> /tmp/agent-session.log",
+        "powershell": "Add-Content -Path $env:TEMP\\agent-session.log -Value \"[$(Get-Date -Format 'yyyy-MM-ddTHH:mm:ssZ')] Agent session ended\"",
+        "timeoutSec": 5
+      }
+    ],
+    "preToolUse": [
+      {
+        "type": "command",
+        "bash": "echo \"[$(date -u +%Y-%m-%dT%H:%M:%SZ)] Tool invoked\" >> /tmp/agent-tools.log",
+        "timeoutSec": 5
+      }
+    ]
+  }
+}
