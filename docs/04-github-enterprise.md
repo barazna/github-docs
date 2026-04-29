@@ -101,7 +101,38 @@ permissions:
 
 ---
 
-## 4. Konfiguracja MCP dla agenta chmurowego
+## 4. Konfiguracja środowiska agenta (`copilot-setup-steps.yml`)
+
+Plik `.github/workflows/copilot-setup-steps.yml` definiuje środowisko uruchomieniowe dla coding agenta. Kroki w tym pliku są wykonywane **przed każdym zadaniem agenta** – instalują zależności, konfigurują runtime i przygotowują projekt do pracy.
+
+**Ważne:** Zadanie musi mieć nazwę dokładnie `copilot-setup-steps`. Plik musi być na domyślnym branchu repozytorium.
+
+**Przykładowy plik:** [`przyklady/.github/workflows/copilot-setup-steps.yml`](../przyklady/.github/workflows/copilot-setup-steps.yml)
+
+```yaml
+name: Copilot Setup Steps
+
+on:
+  workflow_dispatch:
+
+jobs:
+  copilot-setup-steps:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm ci
+```
+
+> Jeśli setup steps nie powiedzie się, agent i tak uruchomi zadanie – nie blokuje pracy, ale środowisko może być niekompletne.
+
+---
+
+## 5. Konfiguracja MCP dla agenta chmurowego
 
 Plik `.github/mcp.json` definiuje serwery MCP dostępne dla agenta działającego w GitHub Actions.
 
@@ -125,7 +156,7 @@ Plik `.github/mcp.json` definiuje serwery MCP dostępne dla agenta działająceg
 
 ---
 
-## 5. Polityki organizacji
+## 6. Polityki organizacji
 
 ### Zarządzanie dostępem do MCP
 
@@ -151,7 +182,7 @@ src/ @org/backend-team
 
 ---
 
-## 6. Workflow automatyczny (GitHub Actions)
+## 7. Workflow automatyczny (GitHub Actions)
 
 Możesz wyzwolić agenta Copilot automatycznie przez GitHub Actions:
 
@@ -184,7 +215,7 @@ jobs:
 
 ---
 
-## 7. Monitorowanie i audyt
+## 8. Monitorowanie i audyt
 
 **Logi aktywności agenta:**
 - **Organization Settings** → **Audit log** → filtruj po `copilot`
@@ -201,6 +232,7 @@ jobs:
 |---|---|---|
 | Code Review | Repo Settings → Copilot | Licencja Enterprise |
 | Coding Agent | Org Settings → Copilot | Licencja Enterprise |
+| Środowisko agenta | `.github/workflows/copilot-setup-steps.yml` | Coding Agent włączony |
 | MCP (cloud) | `.github/mcp.json` | Coding Agent włączony |
 | Polityki MCP | Org Settings → Copilot → MCP | Admin Org |
 | Automatyczne workflow | `.github/workflows/` | GitHub Actions |

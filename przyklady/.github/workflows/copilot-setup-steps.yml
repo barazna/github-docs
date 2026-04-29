@@ -1,0 +1,33 @@
+name: Copilot Setup Steps
+
+# Ten plik konfiguruje środowisko dla Copilot coding agenta.
+# Kroki są wykonywane przed każdym zadaniem agenta.
+# WAŻNE: nazwa zadania musi być dokładnie "copilot-setup-steps".
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/copilot-setup-steps.yml
+
+jobs:
+  copilot-setup-steps:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout kodu
+        uses: actions/checkout@v4
+
+      - name: Konfiguracja Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Instalacja zależności
+        run: npm ci
+
+      - name: Weryfikacja środowiska
+        run: node --version && npm --version

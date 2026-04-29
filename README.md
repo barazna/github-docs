@@ -20,6 +20,8 @@ przyklady/
 ├── .github/
 │   ├── copilot-instructions.md   # Instrukcje repozytorium dla Copilota
 │   ├── mcp.json                  # Konfiguracja MCP dla agenta chmurowego
+│   ├── workflows/
+│   │   └── copilot-setup-steps.yml  # Środowisko coding agenta
 │   └── prompts/
 │       ├── typescript.prompt.md  # Prompt dla kodu TypeScript
 │       ├── code-review.prompt.md # Prompt do przeglądu kodu

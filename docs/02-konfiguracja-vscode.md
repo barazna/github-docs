@@ -85,6 +85,8 @@ Kluczowe ustawienia:
 | `github.copilot.enable` | Włącz/wyłącz Copilot per język (`"*"` = wszystkie) |
 | `chat.agent.enabled` | Włącza tryb agenta w Copilot Chat |
 | `github.copilot.chat.localeOverride` | Język odpowiedzi Copilota (np. `"pl"` dla polskiego) |
+| `github.copilot.chat.codeGeneration.instructions` | Dodatkowe instrukcje dla generowania kodu – może wskazywać na plik (np. `.github/copilot-instructions.md`) |
+| `github.copilot.chat.commitMessageGeneration.instructions` | Instrukcje do generowania wiadomości commit (np. format Conventional Commits) |
 
 ---
 
@@ -175,11 +177,14 @@ Agent samodzielnie:
 ```
 projekt/
 ├── .github/
-│   ├── copilot-instructions.md   ← instrukcje repozytorium (auto-dołączane)
+│   ├── copilot-instructions.md         ← instrukcje repozytorium (auto-dołączane)
+│   ├── mcp.json                        ← serwery MCP dla cloud agenta
+│   ├── workflows/
+│   │   └── copilot-setup-steps.yml     ← środowisko cloud agenta
 │   └── prompts/
-│       └── *.prompt.md           ← szablony promptów (menu /)
+│       └── *.prompt.md                 ← szablony promptów (menu /)
 └── .vscode/
-    ├── settings.json             ← ustawienia Copilot dla workspace
-    ├── mcp.json                  ← serwery MCP dla agenta
-    └── extensions.json           ← zalecane rozszerzenia
+    ├── settings.json                   ← ustawienia Copilot dla workspace
+    ├── mcp.json                        ← serwery MCP dla agenta lokalnego
+    └── extensions.json                 ← zalecane rozszerzenia
 ```

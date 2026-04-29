@@ -75,9 +75,48 @@ Konfiguracja serwerów MCP (Model Context Protocol) dla **Copilot coding agent**
 }
 ```
 
+### `.github/CODEOWNERS`
+
+Definiuje właścicieli plików i katalogów w repozytorium. GitHub automatycznie dodaje właścicieli jako recenzentów w Pull Requestach dotyczących ich plików. Copilot respektuje ten plik przy przypisywaniu review.
+
+> Obsługiwane w: GitHub (wszystkie plany)
+
+**Przykładowa zawartość:**
+
+```
+# Właściciele całego repozytorium
+*  @org/backend-team
+
+# Pliki konfiguracyjne – wymaga zatwierdzenia DevOps
+.github/  @org/devops
+
+# Kod frontendowy
+src/frontend/  @org/frontend-team
+```
+
 ---
 
-### `.vscode/settings.json`
+### `.github/workflows/copilot-setup-steps.yml`
+
+Konfiguruje środowisko dla **Copilot coding agenta** działającego w chmurze. Kroki w tym pliku są wykonywane przed każdym zadaniem agenta – instalują zależności, konfigurują narzędzia i przygotowują środowisko. Zadanie musi mieć nazwę dokładnie `copilot-setup-steps`.
+
+> Obsługiwane w: GitHub Copilot coding agent (cloud), GitHub Enterprise
+
+**Przykładowy plik:** [`przyklady/.github/workflows/copilot-setup-steps.yml`](../przyklady/.github/workflows/copilot-setup-steps.yml)
+
+```yaml
+jobs:
+  copilot-setup-steps:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm ci
+```
+
+---
 
 Ustawienia VS Code specyficzne dla workspace. Pozwala skonfigurować zachowanie Copilot dla wszystkich developerów w projekcie (np. włączyć/wyłączyć dla danych języków, włączyć tryb agenta).
 
@@ -102,10 +141,18 @@ Konfiguracja serwerów MCP dla **VS Code** (lokalnie, na poziomie workspace). Se
       "type": "http",
       "url": "https://api.githubcopilot.com/mcp/",
       "headers": {
-        "Authorization": "Bearer ${input:github_token}"
+        "Authorization": "Bearer ${input:github_mcp_pat}"
       }
     }
-  }
+  },
+  "inputs": [
+    {
+      "type": "promptString",
+      "id": "github_mcp_pat",
+      "description": "GitHub Personal Access Token",
+      "password": true
+    }
+  ]
 }
 ```
 
@@ -139,6 +186,7 @@ Poniższe pliki konfiguruje się lokalnie na maszynie dewelopera – nie są wer
 | `~/.config/github-copilot/intellij/global-copilot-instructions.md` | macOS/Linux | Globalne instrukcje dla IntelliJ – stosowane we wszystkich projektach |
 | `%LOCALAPPDATA%\github-copilot\intellij\global-copilot-instructions.md` | Windows | Jak wyżej, dla Windows |
 | `~/.config/github-copilot/vscode/global-copilot-instructions.md` | macOS/Linux | Globalne instrukcje dla VS Code |
+| `%APPDATA%\Code\User\globalStorage\github.copilot-chat\global-copilot-instructions.md` | Windows | Globalne instrukcje dla VS Code (Windows) |
 
 ---
 
@@ -150,5 +198,7 @@ Poniższe pliki konfiguruje się lokalnie na maszynie dewelopera – nie są wer
 | `.github/prompts/*.prompt.md` | ✅ Zalecany | VS Code |
 | `.vscode/mcp.json` | ✅ Zalecany | VS Code |
 | `.github/mcp.json` | ✅ Zalecany | GitHub cloud agent |
+| `.github/workflows/copilot-setup-steps.yml` | ✅ Zalecany | GitHub cloud agent |
+| `.github/CODEOWNERS` | ℹ️ Opcjonalny | GitHub (wszystkie plany) |
 | `.vscode/settings.json` | ℹ️ Opcjonalny | VS Code |
 | `.vscode/extensions.json` | ℹ️ Opcjonalny | VS Code |

@@ -108,17 +108,19 @@ Plik konfiguracji MCP dla JetBrains jest przechowywany lokalnie:
       "type": "http",
       "url": "https://api.githubcopilot.com/mcp/",
       "headers": {
-        "Authorization": "Bearer TWÓJ_TOKEN"
+        "Authorization": "Bearer <TWÓJ_PERSONAL_ACCESS_TOKEN>"
       }
     },
     "filesystem": {
       "type": "stdio",
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/path/to/project"]
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/ścieżka/do/projektu"]
     }
   }
 }
 ```
+
+> Zastąp `<TWÓJ_PERSONAL_ACCESS_TOKEN>` rzeczywistym tokenem PAT z wymaganymi zakresami: `repo`, `read:org`.
 
 ### Użycie MCP w Copilot Chat
 
@@ -174,8 +176,9 @@ Po skonfigurowaniu sprawdź czy wszystko działa poprawnie:
 
 ```
 Repozytorium:
-  .github/copilot-instructions.md   ← instrukcje projektu (auto-dołączane)
-  .github/prompts/*.prompt.md       ← szablony promptów
+  .github/copilot-instructions.md            ← instrukcje projektu (auto-dołączane)
+  .github/prompts/*.prompt.md                ← szablony promptów
+  .github/workflows/copilot-setup-steps.yml  ← środowisko cloud agenta
 
 Lokalnie na maszynie:
   ~/.config/github-copilot/intellij/
