@@ -1,0 +1,21 @@
+{
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": true,
+    "scminput": false
+  },
+  "github.copilot.chat.localeOverride": "pl",
+  "github.copilot.renameSuggestions.triggerAutomatically": true,
+  "chat.agent.enabled": true,
+  "github.copilot.chat.commitMessageGeneration.instructions": [
+    {
+      "text": "Używaj konwencji Conventional Commits: feat/fix/docs/chore/refactor. Pisz po angielsku. Pierwsza linia max 72 znaki."
+    }
+  ],
+  "github.copilot.chat.codeGeneration.instructions": [
+    {
+      "file": ".github/copilot-instructions.md"
+    }
+  ]
+}
