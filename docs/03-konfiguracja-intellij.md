@@ -74,7 +74,36 @@ W JetBrains prompty z katalogu `.github/prompts/` są dostępne w Copilot Chat.
 
 ---
 
-## 5. Konfiguracja MCP
+## 5. Custom agenci i skills
+
+### Custom agenci (`.github/agents/*.agent.md`)
+
+Pliki `.agent.md` w katalogu `.github/agents/` definiują wyspecjalizowanych agentów dostępnych w Copilot Chat. W JetBrains wsparcie jest dostępne od wersji pluginu 1.6+ (public preview).
+
+**Użycie:**
+1. Otwórz Copilot Chat
+2. Kliknij ikonę agenta lub użyj menu wyboru agenta
+3. Wybierz swojego custom agenta z listy
+
+> Szczegółowy opis formatu `.agent.md` – zob. [Pliki GitHub Copilot](01-pliki-copilot.md#githubagentsagentmd).
+
+### Agent skills (`.github/skills/<nazwa>/SKILL.md`)
+
+Skills to foldery z plikiem `SKILL.md` i opcjonalnymi zasobami. Copilot ładuje je automatycznie gdy zadanie pasuje do opisu skilla.
+
+**Lokalizacje projektowe:**
+- `.github/skills/<nazwa>/SKILL.md`
+- `.claude/skills/<nazwa>/SKILL.md`
+- `.agents/skills/<nazwa>/SKILL.md`
+
+**Lokalizacje osobiste (na maszynie):**
+- `~/.copilot/skills/<nazwa>/SKILL.md`
+
+> Szczegółowy opis formatu `SKILL.md` – zob. [Pliki GitHub Copilot](01-pliki-copilot.md#githubskillsnazwaskillmd).
+
+---
+
+## 6. Konfiguracja MCP
 
 MCP (Model Context Protocol) w JetBrains 2025.1+ umożliwia Copilotowi korzystanie z zewnętrznych narzędzi.
 
@@ -135,7 +164,7 @@ Pobierz listę otwartych Pull Requestów w tym repozytorium i podsumuj co zawier
 
 ---
 
-## 6. Ustawienia pluginu
+## 7. Ustawienia pluginu
 
 Dostęp do ustawień: **Settings** → **Tools** → **GitHub Copilot**
 
@@ -159,7 +188,7 @@ Dostęp do ustawień: **Settings** → **Tools** → **GitHub Copilot**
 
 ---
 
-## 7. Weryfikacja konfiguracji
+## 8. Weryfikacja konfiguracji
 
 Po skonfigurowaniu sprawdź czy wszystko działa poprawnie:
 
@@ -177,6 +206,9 @@ Po skonfigurowaniu sprawdź czy wszystko działa poprawnie:
 ```
 Repozytorium:
   .github/copilot-instructions.md            ← instrukcje projektu (auto-dołączane)
+  .github/agents/*.agent.md                  ← custom agenci (preview w JetBrains)
+  .github/skills/<nazwa>/SKILL.md            ← agent skills (auto-ładowane)
+  .github/hooks/*.json                       ← lifecycle hooks agenta
   .github/prompts/*.prompt.md                ← szablony promptów
   .github/workflows/copilot-setup-steps.yml  ← środowisko cloud agenta
 

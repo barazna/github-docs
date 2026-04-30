@@ -177,14 +177,22 @@ Agent samodzielnie:
 ```
 projekt/
 ├── .github/
-│   ├── copilot-instructions.md         ← instrukcje repozytorium (auto-dołączane)
-│   ├── mcp.json                        ← serwery MCP dla cloud agenta
+│   ├── copilot-instructions.md          ← instrukcje repozytorium (auto-dołączane)
+│   ├── mcp.json                         ← serwery MCP dla cloud agenta
+│   ├── agents/
+│   │   └── *.agent.md                   ← custom agenci (wybierane z dropdownu)
+│   ├── hooks/
+│   │   └── *.json                       ← lifecycle hooks agenta
+│   ├── instructions/
+│   │   └── *.instructions.md            ← instrukcje path-specific (applyTo)
+│   ├── skills/
+│   │   └── <nazwa>/SKILL.md             ← agent skills (ładowane automatycznie)
 │   ├── workflows/
-│   │   └── copilot-setup-steps.yml     ← środowisko cloud agenta
+│   │   └── copilot-setup-steps.yml      ← środowisko cloud agenta
 │   └── prompts/
-│       └── *.prompt.md                 ← szablony promptów (menu /)
+│       └── *.prompt.md                  ← szablony promptów (menu /)
 └── .vscode/
-    ├── settings.json                   ← ustawienia Copilot dla workspace
-    ├── mcp.json                        ← serwery MCP dla agenta lokalnego
-    └── extensions.json                 ← zalecane rozszerzenia
+    ├── settings.json                    ← ustawienia Copilot dla workspace
+    ├── mcp.json                         ← serwery MCP dla agenta lokalnego
+    └── extensions.json                  ← zalecane rozszerzenia
 ```

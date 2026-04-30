@@ -21,7 +21,8 @@ przyklady/
 │   ├── copilot-instructions.md          # Instrukcje repozytorium dla Copilota
 │   ├── mcp.json                         # Konfiguracja MCP dla agenta chmurowego
 │   ├── agents/
-│   │   └── test-specialist.agent.md     # Przykładowy custom agent
+│   │   ├── test-specialist.agent.md     # Przykładowy custom agent (testy)
+│   │   └── diabel.agent.md              # Agent diabła – advocatus diaboli (code review)
 │   ├── hooks/
 │   │   └── project-hooks.json           # Lifecycle hooks agenta
 │   ├── instructions/

@@ -240,6 +240,21 @@ Skill można też zainstalować poleceniem `gh skill install OWNER/REPO`.
 
 ---
 
+### Subagenty (runtime)
+
+**Subagenty** to osobne instancje agenta tworzone automatycznie przez głównego agenta Copilot w celu wykonania wyizolowanego podzadania (np. przeszukanie kodu, uruchomienie testów) i zwrócenia wyników. Nie są konfigurowane jako pliki – to mechanizm runtime.
+
+> Obsługiwane w: GitHub Copilot cloud agent, VS Code (agent mode)
+
+**Kiedy Copilot tworzy subagenta:**
+- Gdy zadanie wymaga równoległej pracy w odizolowanym kontekście
+- Przy złożonych analizach kodu (np. przeszukiwanie wielu plików jednocześnie)
+- Gdy główny agent deleguje wyspecjalizowane zadanie
+
+Subagenty kończące pracę wyzwalają hook `subagentStop` – zob. sekcja [`.github/hooks/*.json`](#githubhooksjson) powyżej.
+
+---
+
 ### `.github/hooks/*.json`
 
 **Lifecycle hooks** – skrypty wykonywane automatycznie w określonych punktach cyklu życia agenta. Pozwalają na zatwierdzanie lub blokowanie wywołań narzędzi, logowanie, skanowanie sekretów i inne zadania automatyczne.
