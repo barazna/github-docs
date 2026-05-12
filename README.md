@@ -10,6 +10,7 @@ Przewodnik opisujący pliki wymagane i opcjonalne dla GitHub Copilot, konfigurac
 | [Konfiguracja VS Code](docs/02-konfiguracja-vscode.md) | Ustawienia VS Code – instrukcje, prompty, MCP, tryb agenta |
 | [Konfiguracja IntelliJ](docs/03-konfiguracja-intellij.md) | Ustawienia JetBrains/IntelliJ – instrukcje, prompty, MCP |
 | [GitHub Enterprise – Agenci](docs/04-github-enterprise.md) | Konfiguracja agentów Copilot i code review w GitHub Enterprise |
+| [Optymalizacja tokenów](docs/05-optymalizacja-tokenow.md) | Wskazówki i dobre praktyki zmniejszenia zużycia tokenów i przyspieszenia pracy agenta AI |
 
 ## Przykładowe pliki
 
