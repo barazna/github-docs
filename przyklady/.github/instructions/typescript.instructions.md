@@ -1,5 +1,6 @@
 ---
 applyTo: "**/*.ts,**/*.tsx"
+description: Zasady kodowania TypeScript stosowane dla plików TS/TSX.
 ---
 
 # Instrukcje dla plików TypeScript
