@@ -222,7 +222,8 @@ Jesteś specjalistą od testowania kodu. Twoje zadania:
 ---
 name: github-actions-debugging
 description: Instrukcja debugowania nieudanych workflow GitHub Actions. Używaj gdy prosisz o naprawienie błędów CI.
-allowed-tools: shell
+allowed-tools:
+  - shell
 ---
 
 Aby debugować nieudane workflow GitHub Actions:

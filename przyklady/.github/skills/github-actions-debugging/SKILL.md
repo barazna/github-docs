@@ -1,7 +1,8 @@
 ---
 name: github-actions-debugging
 description: Przewodnik debugowania nieudanych workflow GitHub Actions. Używaj gdy prosisz o naprawienie błędów CI/CD lub nieudanych pipeline'ów.
-allowed-tools: shell
+allowed-tools:
+  - shell
 ---
 
 Aby debugować nieudane workflow GitHub Actions, postępuj według poniższego procesu używając narzędzi z GitHub MCP Server:
