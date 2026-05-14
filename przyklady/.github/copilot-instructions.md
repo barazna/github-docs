@@ -1,3 +1,7 @@
+---
+description: Instrukcje repozytorium dla GitHub Copilot dotyczące stacku, standardów i bezpieczeństwa.
+---
+
 # Instrukcje GitHub Copilot
 
 ## Stack technologiczny

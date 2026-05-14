@@ -2,6 +2,8 @@
 name: test-specialist
 description: Specjalista od testów – analizuje pokrycie kodu, pisze testy jednostkowe (Vitest) i integracyjne (Supertest) bez modyfikowania kodu produkcyjnego
 tools: ["read", "edit", "search", "shell"]
+model: gpt-5.5
+target: github-copilot
 ---
 
 Jesteś specjalistą od testowania kodu TypeScript. Twoje zadania i zasady:

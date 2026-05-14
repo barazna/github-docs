@@ -15,6 +15,10 @@ Przegląd plików używanych przez GitHub Copilot – które są kluczowe dla ef
 **Przykładowy plik:** [`przyklady/.github/copilot-instructions.md`](../przyklady/.github/copilot-instructions.md)
 
 ```markdown
+---
+description: Instrukcje repozytoryjne dla GitHub Copilot (stack, standardy i bezpieczeństwo).
+---
+
 # Instrukcje Copilot
 
 ## Stack technologiczny
@@ -47,6 +51,7 @@ Instrukcje **path-specific** – stosowane tylko gdy Copilot pracuje na plikach 
 ```markdown
 ---
 applyTo: "**/*.ts,**/*.tsx"
+description: Zasady kodowania TypeScript dla plików TS/TSX.
 ---
 
 # Instrukcje dla plików TypeScript
@@ -180,6 +185,8 @@ Definicje **custom agentów** – wyspecjalizowanych agentów z własną tożsam
 name: test-specialist
 description: Specjalista od testów – analizuje pokrycie kodu i pisze testy jednostkowe oraz integracyjne
 tools: ["read", "edit", "search", "shell"]
+model: gpt-5.5
+target: github-copilot
 ---
 
 Jesteś specjalistą od testowania kodu. Twoje zadania:
@@ -215,7 +222,8 @@ Jesteś specjalistą od testowania kodu. Twoje zadania:
 ---
 name: github-actions-debugging
 description: Instrukcja debugowania nieudanych workflow GitHub Actions. Używaj gdy prosisz o naprawienie błędów CI.
-allowed-tools: shell
+allowed-tools:
+  - shell
 ---
 
 Aby debugować nieudane workflow GitHub Actions:
